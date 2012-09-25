@@ -165,29 +165,6 @@ func main() {
 
 }
 
-func testOrder() {
-
-	date := formatDate(time.Now())
-	count := 0
-	start := time.Now()
-
-	for train := 0; train < 1000; train++ {
-		for i := 0; i < maxLength-2; i++ {
-			_, ok := order(31, train, date, uint8(i), uint8(i+1))
-			if !ok {
-				fmt.Println("order fail", train, i)
-			}
-			count++
-		}
-	}
-	end := time.Now()
-
-	fmt.Println("start", start)
-	fmt.Println("end", end)
-	fmt.Println("count", count)
-	fmt.Println("duration", end.Sub(start).Nanoseconds()/1000000)
-}
-
 func testSearch() {
 	total := 1000 * 1000
 	date := formatDate(time.Now())
